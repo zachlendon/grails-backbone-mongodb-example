@@ -3,7 +3,7 @@ package todo
 class Todo {
 
     boolean done
-    int order
+    int orderIndex
     String text
 
     static constraints = {
