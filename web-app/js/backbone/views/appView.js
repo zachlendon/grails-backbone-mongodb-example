@@ -8,9 +8,6 @@ window.AppView = Backbone.View.extend({
     // the App already present in the HTML.
     el: $("#todoapp"),
 
-    // Our template for the line of statistics at the bottom of the app.
-    statsTemplate: _.template($('#stats-template').html()),
-
     // Delegated events for creating new items, and clearing completed ones.
     events: {
         "keypress #new-todo":  "createOnEnter",
@@ -32,7 +29,8 @@ window.AppView = Backbone.View.extend({
     // of the app doesn't change.
     render: function() {
         if (this.collection && this.collection.length) {
-            this.$('#todo-stats').html(this.statsTemplate({
+            var template = _.template($('#stats-template').html());
+            this.$('#todo-stats').html(template({
                 total:      this.collection.length,
                 done:       this.collection.done().length,
                 remaining:  this.collection.remaining().length

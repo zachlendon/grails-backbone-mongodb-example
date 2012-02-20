@@ -13,8 +13,6 @@ window.TodoList = Backbone.Collection.extend({
     // Filter down the list of all todo items that are finished.
     done: function() {
         return this.filter(function(todo){
-
-            debugger;
             return todo.get('done');
         });
     },
