@@ -28,14 +28,12 @@ window.AppView = Backbone.View.extend({
     // Re-rendering the App just means refreshing the statistics -- the rest
     // of the app doesn't change.
     render: function() {
-        if (this.collection && this.collection.length) {
             var template = _.template($('#stats-template').html());
             this.$('#todo-stats').html(template({
                 total:      this.collection.length,
                 done:       this.collection.done().length,
                 remaining:  this.collection.remaining().length
             }));
-        }
     },
 
     // Add a single todo item to the list by creating a view for it, and
